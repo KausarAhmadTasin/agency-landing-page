@@ -5,11 +5,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-10 top-0 backdrop-blur-md bg-gradient-to-r from-black via-gray-900 to-black/70 py-6 text-white">
+    <nav className="fixed w-full z-50 top-0 backdrop-blur-md bg-gradient-to-r from-blue-900 via-black to-blue/60 py-4 text-white custom-navbar-shadow">
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black to-blue-800 opacity-30 backdrop-blur-lg"></div>
       <div className="container mx-auto px-4 flex justify-between items-center py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold">
-          <a href="#">AgencyName</a>
+        <div className="text-2xl font-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent hover:text-blue-400 transition duration-300 ease-in-out">
+          <a href="#">
+            Agency<span className="font-thin text-pink-300">Name</span>
+          </a>
         </div>
 
         {/* Desktop Menu */}
@@ -71,7 +74,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gradient-to-r from-black via-gray-900 to-black/70 shadow-lg">
+        <div className="md:hidden bg-gradient-to-r from-black via-black to-blue-800/70 shadow-lg">
           <a
             href="#services"
             className="block px-4 py-2 hover:bg-gray-700"

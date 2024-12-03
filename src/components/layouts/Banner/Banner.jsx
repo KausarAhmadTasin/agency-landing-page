@@ -13,15 +13,20 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative bg-black text-white h-[90vh] pt-36 select-none">
-      <div className="md:container md:mx-auto mx-2 flex flex-col justify-center items-center">
-        {/* Main Heading */}
+    <div className="relative bg-black text-white h-fit pb-10 pt-40 select-none overflow-hidden">
+      {/* Blurry Elements Behind */}
+      <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-lg"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-pink-600 to-blue-800 opacity-25 backdrop-blur-xl"></div>
+      <div className="absolute inset-0 bg-gray-900 opacity-40 backdrop-blur-3xl"></div>
+
+      <div className="md:container md:mx-auto mx-2 flex flex-col justify-center items-center relative z-10">
+        {/* Heading */}
         <h1
           className={`text-5xl md:text-6xl text-center font-bold transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          Welcome to{" "}
+          <span className="font-thin">Welcome to</span>{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
             TheChAgency
           </span>
@@ -36,7 +41,7 @@ const Banner = () => {
           Your Partner in Digital Transformation
         </p>
 
-        {/* Call to Action Button */}
+        {/* Button */}
         <button
           className={`mt-8 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg rounded-lg shadow-md hover:opacity-90 transition-opacity duration-1000 ease-in-out delay-500 ${
             isVisible ? "opacity-100" : "opacity-0"

@@ -10,18 +10,17 @@ const Services = () => {
       servicesData.forEach((_, index) => {
         setTimeout(() => {
           setVisibleCards((prev) => [...prev, index]);
-        }, index * 2000); // Animation every 2 seconds
+        }, index * 1000);
       });
-    }, 2000); // Reset animation every 2 seconds
+    }, 2000);
 
-    // Clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white py-20">
+    <div id="services" className="bg-gray-900 text-white py-20 select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-500">
           Our Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -38,16 +37,33 @@ const Services = () => {
                 }
               `}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-purple-400">
+              <h3
+                className={`text-2xl font-semibold mb-4 ${getCardTitleColor(
+                  index
+                )}`}
+              >
                 {service.title}
               </h3>
-              <p className="text-gray-400">{service.description}</p>
+              <p className="text-gray-300">{service.description}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
+};
+
+const getCardTitleColor = (index) => {
+  const colors = [
+    "text-green-400", // Green
+    "text-teal-400", // Teal
+    "text-yellow-400", // Yellow
+    "text-purple-400", // Purple
+    "text-pink-400", // Pink
+    "text-indigo-400", // Indigo
+  ];
+
+  return colors[index % colors.length];
 };
 
 const servicesData = [
