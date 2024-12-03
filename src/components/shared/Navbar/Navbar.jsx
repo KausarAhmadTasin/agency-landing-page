@@ -11,7 +11,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-2xl font-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent hover:text-blue-400 transition duration-300 ease-in-out">
           <a href="#">
-            Agency<span className="font-thin text-pink-300">Name</span>
+            Tech<span className="font-thin text-pink-300">Agency</span>
           </a>
         </div>
 
